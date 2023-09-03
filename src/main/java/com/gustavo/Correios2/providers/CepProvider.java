@@ -2,6 +2,7 @@ package com.gustavo.Correios2.providers;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.gustavo.Correios2.exceptions.InvalidFieldValueException;
 import com.gustavo.Correios2.models.Cep;
 
 import java.io.IOException;
@@ -12,6 +13,7 @@ import java.net.http.HttpResponse;
 import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 
 public class CepProvider {
     private static final String BASE_URL = "https://brasilapi.com.br/api/cep/v1/";
@@ -35,7 +37,7 @@ public class CepProvider {
             final Gson gson = new GsonBuilder().create();
 
             return gson.fromJson(resp.body(), Cep.class);
-        } catch (IOException | InterruptedException ex) {
+        } catch (IOException | InterruptedException | InvalidFieldValueException ex) {
             Logger.getLogger(CepProvider.class.getName()).log(Level.SEVERE, null, ex);
         }
 

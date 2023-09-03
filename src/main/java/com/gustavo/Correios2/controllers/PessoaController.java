@@ -1,8 +1,6 @@
 package com.gustavo.Correios2.controllers;
 
 import com.gustavo.Correios2.dtos.PessoaDTO;
-import com.gustavo.Correios2.models.Endereco;
-import com.gustavo.Correios2.models.Pessoa;
 import com.gustavo.Correios2.services.PessoaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
